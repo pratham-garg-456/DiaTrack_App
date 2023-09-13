@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<body>
+
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+<script>
+var no_worked = "<%= no_w %>"
+var no_nworked = "<%= no_nw %>"
+var medication = "<%= medication %>"
+
+var xValues = ["Successful Patients" , "Unsuccessful Patients"];
+var yValues = [no_worked, no_nworked];
+var barColors = ["green", "red"];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Performance of " + medication
+    }, 
+    scales: {
+        yAxes: [{
+                    display: true,
+                    ticks: {
+                            beginAtZero: true,
+                            stepSize: 1
+                            }
+                    }]
+    }
+  }
+});
+</script>
+
+<h1> Total Patients : <%= total_patients%> </h1>
+<h1> Percentage Successful : <%= per_s%> </h1>
+<h1> Percentage Not Successful : <%= per_ns%> </h1>
+</body>
+</html>

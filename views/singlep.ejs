@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <title>Patient Dashboard</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    h2 {
+      margin-top: 30px;
+    }
+
+    h3 {
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+
+    table th {
+      background-color: #9fc5e8;
+      text-align: left;
+      padding: 10px;
+    }
+
+    table td {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <center>
+    <h1>
+      <%= name %>
+    </h1>
+  </center>
+  <div>
+    <canvas id="myChart" style="width:100%;max-width:600px;margin: 0 auto;"></canvas>
+  </div>
+  <div class="container">
+    <h1>Meal Plan</h1>
+    <h2>Breakfast</h2>
+    <table>
+      <tr>
+        <th>Meal</th>
+        <th>Calories</th>
+        <th>Carbs (g)</th>
+        <th>Protein (g)</th>
+        <th>Fat (g)</th>
+        <th>Sugar (g)</th>
+      </tr>
+      <tr>
+        <td>Wild blueberry pancakes made with whole-grain flour and topped with pure maple syrup</td>
+        <td>420</td>
+        <td>65</td>
+        <td>10</td>
+        <td>14</td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <td>A breakfast burrito made with scrambled eggs, black beans, and local vegetables, wrapped in a whole-grain
+          tortilla</td>
+        <td>350</td>
+        <td>38</td>
+        <td>18</td>
+        <td>12</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>A smoothie made with almond milk, frozen wild blueberries, and a tablespoon of chia seeds</td>
+        <td>250</td>
+        <td>35</td>
+        <td>5</td>
+        <td>10</td>
+        <td>14</td>
+      </tr>
+    </table>
+
+    <div>
+      <h3>Mid-Morning Snack</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Meal</th>
+            <th>Calories</th>
+            <th>Carbs (g)</th>
+            <th>Protein (g)</th>
+            <th>Fat (g)</th>
+            <th>Sugar (g)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A small portion of bannock (a traditional Anishinaabe bread) with a dollop of apple butter</td>
+            <td>150</td>
+            <td>20g</td>
+            <td>2g</td>
+            <td>7g</td>
+            <td>4g</td>
+          </tr>
+          <tr>
+            <td>A handful of mixed nuts and dried fruits</td>
+            <td>200</td>
+            <td>15g</td>
+            <td>6g</td>
+            <td>14g</td>
+            <td>7g</td>
+          </tr>
+          <tr>
+            <td>Fresh strawberries or raspberries with a drizzle of honey or maple syrup</td>
+            <td>80</td>
+            <td>20g</td>
+            <td>1g</td>
+            <td>0g</td>
+            <td>7g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>Lunch</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Meal</th>
+          <th>Calories</th>
+          <th>Carbs (g)</th>
+          <th>Protein (g)</th>
+          <th>Fat (g)</th>
+          <th>Sugar (g)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Wild Rice Salad with Grilled Chicken</td>
+          <td>Wild rice, mixed greens, roasted vegetables, grilled chicken, local herbs and berries vinaigrette</td>
+          <td>450</td>
+          <td>26</td>
+          <td>32</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>Bison or Venison Chili with Cornbread</td>
+          <td>Bison or venison, tomatoes, onions, garlic, kidney beans, chili powder, cornbread</td>
+          <td>500</td>
+          <td>30</td>
+          <td>45</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>Smoked Trout Sandwich</td>
+          <td>Whole-grain bread, smoked trout, cucumber, lettuce, tomato, mustard, mayo</td>
+          <td>350</td>
+          <td>24</td>
+          <td>28</td>
+          <td>3</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Afternoon Snack</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Meal</th>
+          <th>Calories</th>
+          <th>Carbs (g)</th>
+          <th>Protein (g)</th>
+          <th>Fat (g)</th>
+          <th>Sugar (g)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Smoked fish (such as whitefish or trout)</td>
+          <td>3 oz</td>
+          <td>145</td>
+          <td>0</td>
+          <td>21</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>Fresh carrots or celery sticks with hummus or guacamole</td>
+          <td>1 cup</td>
+          <td>90</td>
+          <td>14</td>
+          <td>2</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Local cheese with whole-grain crackers</td>
+          <td>1 oz cheese and 6 crackers</td>
+          <td>230</td>
+          <td>15</td>
+          <td>8</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Total</td>
+          <td>-</td>
+          <td>465</td>
+          <td>29</td>
+          <td>31</td>
+          <td>25</td>
+        </tr>
+      </tfoot>
+    </table>
+    <h3>Dinner</h3>
+    <table>
+      <tr>
+        <th>Meal</th>
+        <th>Calories</th>
+        <th>Carbs (g)</th>
+        <th>Protein (g)</th>
+        <th>Fat (g)</th>
+        <th>Sugar (g)</th>
+      </tr>
+      <tr>
+        <td>Baked Salmon Fillet</td>
+        <td>Wild salmon fillet, olive oil, lemon juice, garlic, sea salt, black pepper, wild rice, kale, squash, sweet
+          potato</td>
+        <td>420</td>
+        <td>38</td>
+        <td>26</td>
+
+        <td>7</td>
+      </tr>
+      <tr>
+        <td>Bison or Venison Stew</td>
+        <td>Bison or venison, potatoes, carrots, turnips, onions, garlic, tomato paste, beef broth, sea salt, black
+          pepper, thyme, rosemary</td>
+        <td>370</td>
+        <td>28</td>
+        <td>28</td>
+
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>Vegetarian Stir-Fry</td>
+        <td>Tofu or tempeh, mushrooms, peppers, onions, garlic, ginger, soy sauce, brown sugar, sesame oil, brown rice
+          or quinoa</td>
+        <td>350</td>
+        <td>35</td>
+        <td>20</td>
+
+        <td>6</td>
+      </tr>
+    </table>
+
+
+    <script>
+      const dates = "<%= dates %>"
+      const dates_arr = dates.split(",")
+      const sugarlevels = "<%= sugar_level %>"
+      const sugar_arr = sugarlevels.split(",")
+
+      new Chart("myChart", {
+        type: "line",
+        data: {
+          labels: dates_arr,
+          datasets: [{
+            fill: false,
+            lineTension: 0,
+            backgroundColor: "rgba(0,0,255,1.0)",
+            borderColor: "rgba(0,0,255,0.1)",
+            data: sugar_arr
+          }]
+        },
+        options: {
+          legend: { display: false },
+          scales: {
+            yAxes: [{
+              ticks: {
+                stepSize: 5,
+                min: 80
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Blood Glucose Level (mg/dL)'
+              }
+
+
+
+            },
+
+            ],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Date (DD/MM/YYYY)'
+              }
+
+
+
+            },
+
+            ],
+          }
+        }
+      });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<body>
+
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+<script>
+var p_0_14 = "<%= p0_14 %>"
+var p_15_24 = "<%= p15_24 %>"
+var p_25_64 = "<%= p25_64 %>"
+var p_65_a = "<%= p65_a %>"
+
+var xValues = ["0-14" , "15-24", "25-64","65 and above"];
+var yValues = [p_0_14, p_15_24, p_25_64, p_65_a];
+var barColors = ["blue", "blue", "blue", "blue"];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Diabetes in different Age Groups"
+    }, 
+    scales: {
+        yAxes: [{
+                    display: true,
+                    ticks: {
+                            beginAtZero: true,
+                            stepSize: 1
+                            }
+                    }]
+    }
+  }
+});
+</script>
+
+</body>
+</html>
